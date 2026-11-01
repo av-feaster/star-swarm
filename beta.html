@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Star Swarm — Join the Beta</title>
+<meta name="description" content="Join the Star Swarm closed beta on Android. Join the tester group, then opt in and download from Google Play.">
+<link rel="icon" type="image/png" href="assets/icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Chakra+Petch:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#060a08; --card:#0e1711; --ink:#e8f5ec; --muted:#8fa797;
+          --accent:#45e06a; --accent-dim:rgba(69,224,106,.16); }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { background:var(--bg); color:var(--ink); font:17px/1.6 "Chakra Petch", -apple-system, sans-serif; overflow-x:hidden; }
+  h1,h2,.logo { font-family:"Orbitron", sans-serif; }
+  #stars { position:fixed; inset:0; z-index:0; pointer-events:none; }
+  main { position:relative; z-index:1; max-width:720px; margin:0 auto; padding:0 24px 80px; }
+
+  nav { display:flex; align-items:center; gap:12px; padding:22px 0; }
+  nav img { width:40px; height:40px; border-radius:10px; }
+  .logo { font-size:1.05rem; font-weight:900; letter-spacing:.14em; color:var(--ink); text-decoration:none; }
+  .logo span { color:var(--accent); }
+
+  .head { text-align:center; padding:34px 0 40px; }
+  .kicker { display:inline-block; font-size:.78rem; font-weight:700; letter-spacing:.3em; color:var(--accent);
+    border:1px solid rgba(69,224,106,.4); border-radius:999px; padding:7px 16px; margin-bottom:20px; background:var(--accent-dim); }
+  h1 { font-size:clamp(2rem, 6vw, 3rem); font-weight:900; letter-spacing:.04em; line-height:1.1; }
+  h1 span { color:var(--accent); text-shadow:0 0 30px rgba(69,224,106,.45); }
+  .head p { color:var(--muted); margin-top:14px; }
+
+  .step { background:var(--card); border:1px solid rgba(255,255,255,.09); border-radius:18px;
+    padding:28px 26px; margin-bottom:20px; position:relative; }
+  .step .num { position:absolute; top:-16px; left:22px; background:linear-gradient(180deg,#5bf283,#2fbf55);
+    color:#06290f; font:900 1rem "Orbitron",sans-serif; width:34px; height:34px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; box-shadow:0 0 18px rgba(69,224,106,.45); }
+  .step h2 { font-size:1.1rem; letter-spacing:.05em; margin-bottom:10px; }
+  .step p { color:var(--muted); font-size:.95rem; margin-bottom:16px; }
+  .step p b { color:var(--ink); }
+
+  .btn { display:inline-block; text-decoration:none; text-align:center; font:700 .98rem "Chakra Petch",sans-serif;
+    letter-spacing:.04em; border-radius:12px; padding:14px 24px; transition:transform .15s, box-shadow .15s; }
+  .btn-solid { background:linear-gradient(180deg,#5bf283,#2fbf55); color:#06290f; box-shadow:0 0 26px rgba(69,224,106,.3); }
+  .btn-solid:hover { transform:translateY(-1px); box-shadow:0 0 36px rgba(69,224,106,.5); }
+  .btn-ghost { border:1px solid rgba(69,224,106,.55); color:var(--accent); background:rgba(69,224,106,.06); }
+  .btn-ghost:hover { background:rgba(69,224,106,.14); }
+  .btn-row { display:flex; gap:14px; flex-wrap:wrap; }
+  .btn-row .btn { flex:1; min-width:200px; }
+  .or { color:var(--muted); font-size:.85rem; align-self:center; }
+
+  .note { background:rgba(255,194,75,.07); border:1px solid rgba(255,194,75,.3); border-radius:12px;
+    padding:14px 18px; color:#e8d9b0; font-size:.9rem; margin-top:26px; }
+  .note b { color:#ffc24b; }
+
+  footer { border-top:1px solid rgba(255,255,255,.08); padding:28px 24px 44px; position:relative; z-index:1; }
+  .foot { max-width:720px; margin:0 auto; display:flex; flex-wrap:wrap; gap:14px; align-items:center;
+    justify-content:space-between; color:var(--muted); font-size:.9rem; }
+  .foot a { color:var(--muted); text-decoration:none; margin-left:16px; }
+  .foot a:hover { color:var(--accent); }
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<main>
+  <nav>
+    <img src="assets/icon.png" alt="Star Swarm icon">
+    <a class="logo" href="index.html">STAR <span>SWARM</span></a>
+  </nav>
+
+  <div class="head">
+    <span class="kicker">CLOSED BETA · ANDROID</span>
+    <h1>JOIN THE <span>BETA</span></h1>
+    <p>Two quick steps and you're flying. Use the <b style="color:var(--ink)">same Google account</b> for both.</p>
+  </div>
+
+  <div class="step">
+    <div class="num">1</div>
+    <h2>JOIN THE TESTER GROUP</h2>
+    <p>Google Play only lets group members into the beta. Join with the Google account
+       you use on your phone — then come back here.</p>
+    <a class="btn btn-solid" href="GOOGLE_GROUP_URL" id="group-link">JOIN THE GOOGLE GROUP</a>
+  </div>
+
+  <div class="step">
+    <div class="num">2</div>
+    <h2>GET THE GAME</h2>
+    <p><b>On your Android phone?</b> Go straight to the Play Store.
+       <b>On a computer?</b> Opt in on the web first, then install from the Play Store on your phone.</p>
+    <div class="btn-row">
+      <a class="btn btn-solid" href="https://play.google.com/store/apps/details?id=io.arrowed.starswarm">📱 ANDROID — PLAY STORE</a>
+      <span class="or">or</span>
+      <a class="btn btn-ghost" href="https://play.google.com/apps/testing/io.arrowed.starswarm">🌐 WEB — OPT IN TO TESTING</a>
+    </div>
+  </div>
+
+  <div class="note">
+    <b>Not working?</b> Make sure you joined the group first (step 1) with the <b>same account</b> —
+    the Play Store page shows the beta only to group members, and it can take a few minutes after joining.
+  </div>
+</main>
+
+<footer>
+  <div class="foot">
+    <div>© 2026 arrowed · Star Swarm</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+      <a href="mailto:officialaman.ver@gmail.com">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  const c = document.getElementById('stars'), x = c.getContext('2d');
+  let W, H, stars;
+  function init() {
+    W = c.width = innerWidth; H = c.height = innerHeight;
+    stars = Array.from({ length: Math.min(180, W * H / 8000) }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      z: Math.random() * 0.8 + 0.2, tw: Math.random() * Math.PI * 2
+    }));
+  }
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function frame(t) {
+    x.clearRect(0, 0, W, H);
+    for (const s of stars) {
+      if (!reduced) { s.y += s.z * 0.3; if (s.y > H) { s.y = -2; s.x = Math.random() * W; } }
+      const a = 0.35 + 0.65 * Math.abs(Math.sin(s.tw + t / 1600));
+      x.fillStyle = 'rgba(220,240,228,' + a * s.z + ')';
+      x.fillRect(s.x, s.y, s.z > 0.75 ? 2 : 1, s.z > 0.75 ? 2 : 1);
+    }
+    requestAnimationFrame(frame);
+  }
+  addEventListener('resize', init); init(); requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
