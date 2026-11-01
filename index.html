@@ -143,8 +143,10 @@
     .hero { grid-template-columns:1fr; min-height:0; padding-top:10px; text-align:center; }
     .sub { margin-inline:auto; }
     .wl, .form-ok { margin:0 auto; }
-    .scene { height:320px; order:-1; }
-    .ring { width:320px; height:320px; } .ring.r2 { width:230px; height:230px; }
+    .scene { height:300px; order:-1; }
+    .striker { width:min(280px, 68vw); }
+    .thrust { left:12%; width:30%; }
+    .ring { width:300px; height:300px; } .ring.r2 { width:215px; height:215px; }
     .wl { flex-direction:column; }
   }
   @media (prefers-reduced-motion: reduce) {
@@ -213,11 +215,11 @@
 
   <section>
     <h2>FROM THE <span>COCKPIT</span></h2>
-    <p class="section-sub">Actual in-game screens — hangar, combat and command deck.</p>
+    <p class="section-sub">Actual in-game screens — combat, level-ups and daily rewards.</p>
     <div class="shots">
-      <div class="phone"><img src="assets/1_menu.png" alt="Star Swarm main menu" loading="lazy"></div>
-      <div class="phone"><img src="assets/2_hangar.png" alt="Star Swarm hangar — ship detail" loading="lazy"></div>
-      <div class="phone"><img src="assets/3_hud.png" alt="Star Swarm in-run HUD" loading="lazy"></div>
+      <div class="phone"><img src="assets/combat.png" alt="Star Swarm combat — dodging through the swarm" loading="lazy"></div>
+      <div class="phone"><img src="assets/levelup.png" alt="Star Swarm level-up — choose an upgrade" loading="lazy"></div>
+      <div class="phone"><img src="assets/daily.png" alt="Star Swarm daily rewards" loading="lazy"></div>
     </div>
   </section>
 
